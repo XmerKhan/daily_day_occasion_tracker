@@ -797,18 +797,25 @@ const CALENDARIFIC_KEY = "YOUR_CALENDARIFIC_KEY"; // replace
 const NINJA_API_KEY = "rl9k5yq6YcNaZR7ZWpDZig==x52h25Gzg6TGBBdI";
 
 /* ---------- NINJA API FETCH ---------- */
-async function fetchNinjaHolidays() {
+async function fetchNinjaHolidays(cc) {
   try {
     const d = new Date();
     const Y = d.getFullYear();
     const M = String(d.getMonth()+1).padStart(2,"0");
     const D2 = String(d.getDate()).padStart(2,"0");
-    const r = await fetch(`https://api.api-ninjas.com/v1/holidays?country=US&year=${Y}`, {
-      headers: { "X-Api-Key": NINJA_API_KEY }
-    });
-    const all = await r.json();
     const today = `${Y}-${M}-${D2}`;
-    return Array.isArray(all) ? all.filter(h => h.date === today) : [];
+    const countries = cc ? [cc, "US"] : ["US"];
+    for (const country of countries) {
+      try {
+        const r = await fetch(`https://api.api-ninjas.com/v1/holidays?country=${country}&year=${Y}`, {
+          headers: { "X-Api-Key": NINJA_API_KEY }
+        });
+        const all = await r.json();
+        const found = Array.isArray(all) ? all.filter(h => h.date === today) : [];
+        if (found.length > 0) return found;
+      } catch(e) {}
+    }
+    return [];
   } catch(e) { return []; }
 }
 
@@ -1465,7 +1472,7 @@ async function fetchAll() {
 
   const aladhan = await aladhanP;
   const cal = await calP;
-  const ninja = await fetchNinjaHolidays();
+  const ninja = await fetchNinjaHolidays(cc);
   return { ip: ipData, aladhan, cal, ninja };
 }
 
@@ -1515,7 +1522,7 @@ function buildOccasionList(results) {
 
   // ninja api holidays (fallback agar upar se koi occasion na aya)
   try {
-    if (results.ninja && results.ninja.length && list.length === 0) {
+    if (results.ninja && results.ninja.length) {
       results.ninja.slice(0,2).forEach(h => {
         list.push({
           id: "default",

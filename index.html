@@ -12,8 +12,7 @@
 <link rel="canonical" href="https://vidify.site/" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0a0a1a" />
-<meta name="google-site-verification" content="a9kWz0FTz9PCmYUsGPveVb1P1Hhh2gEvy2Hw9EuMz1o" />
-<meta name="google-adsense-account" content="ca-pub-9688888790437839" />
+<meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN" />
 <link rel="apple-touch-icon" href="https://vidify.site/apple-touch-icon.png" />
 <link rel="icon" type="image/png" href="https://vidify.site/favicon.png" />
 
@@ -639,8 +638,8 @@
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#aboutToday">Today</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="#" data-modal="about">About</a></li>
+        <li><a href="#" data-modal="faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -697,7 +696,7 @@
 
 <!-- AD SLOT 1 -->
 <section class="ad-slot" aria-label="Advertisement">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9688888790437839"
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
        data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </section>
@@ -717,7 +716,7 @@
 
 <!-- AD SLOT 2 (mid page) -->
 <section class="ad-slot" aria-label="Advertisement">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9688888790437839"
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
        data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </section>
@@ -746,7 +745,7 @@
 
 <!-- AD SLOT 3 (above footer) -->
 <section class="ad-slot" aria-label="Advertisement">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9688888790437839"
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
        data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </section>
@@ -760,11 +759,11 @@
 <footer>
   <div class="logo">🌍 Vidify</div>
   <div class="foot-links">
-    <a href="/about.html">About Us</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/privacy-policy.html">Privacy Policy</a>
-    <a href="/disclaimer.html">Disclaimer</a>
-    <a href="/terms.html">Terms &amp; Conditions</a>
+    <button type="button" data-modal="about">About Us</button>
+    <button type="button" data-modal="faq">FAQ</button>
+    <button type="button" data-modal="privacy">Privacy Policy</button>
+    <button type="button" data-modal="disclaimer">Disclaimer</button>
+    <button type="button" data-modal="terms">Terms &amp; Conditions</button>
     <a href="#contact">Contact</a>
   </div>
   <small>© 2026 Vidify — Celebrating Every Day, Everywhere 🌍</small>
@@ -794,6 +793,23 @@
    ===================================================== */
 
 const CALENDARIFIC_KEY = "YOUR_CALENDARIFIC_KEY"; // replace
+const NINJA_API_KEY = "rl9k5yq6YcNaZR7ZWpDZig==x52h25Gzg6TGBBdI";
+
+/* ---------- NINJA API FETCH ---------- */
+async function fetchNinjaHolidays() {
+  try {
+    const d = new Date();
+    const Y = d.getFullYear();
+    const M = String(d.getMonth()+1).padStart(2,"0");
+    const D2 = String(d.getDate()).padStart(2,"0");
+    const r = await fetch(`https://api.api-ninjas.com/v1/holidays?country=US&year=${Y}`, {
+      headers: { "X-Api-Key": NINJA_API_KEY }
+    });
+    const all = await r.json();
+    const today = `${Y}-${M}-${D2}`;
+    return Array.isArray(all) ? all.filter(h => h.date === today) : [];
+  } catch(e) { return []; }
+}
 
 /* ---------- OCCASIONS DB ---------- */
 const OCCASIONS = {
@@ -1448,7 +1464,8 @@ async function fetchAll() {
 
   const aladhan = await aladhanP;
   const cal = await calP;
-  return { ip: ipData, aladhan, cal };
+  const ninja = await fetchNinjaHolidays();
+  return { ip: ipData, aladhan, cal, ninja };
 }
 
 async function fetchCalendarific(cc) {
@@ -1490,6 +1507,21 @@ function buildOccasionList(results) {
           emoji: "🏳️",
           theme: "default",
           kind: "national"
+        });
+      });
+    }
+  } catch(e) {}
+
+  // ninja api holidays (fallback agar upar se koi occasion na aya)
+  try {
+    if (results.ninja && results.ninja.length && list.length === 0) {
+      results.ninja.slice(0,2).forEach(h => {
+        list.push({
+          id: "default",
+          name: h.name,
+          emoji: "🗓️",
+          theme: "default",
+          kind: "worldwide"
         });
       });
     }

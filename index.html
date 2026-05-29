@@ -50,11 +50,6 @@
 }
 </script>
 
-<!-- ads.txt instructions:
-     Create /ads.txt at the site root containing:
-     google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fefcafcd
-     Replace pub-XXXXXXXXXXXXXXXX with your real AdSense publisher ID. -->
-
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9688888790437839"
         crossorigin="anonymous"></script>
@@ -547,7 +542,6 @@
     position: fixed; inset: 0; pointer-events: none; z-index: 0;
     overflow: hidden;
   }
-  /* snow */
   .snowflake {
     position: absolute; top: -10px; color: #fff; opacity: .85;
     user-select: none; animation: fall linear infinite;
@@ -555,7 +549,6 @@
   @keyframes fall {
     to { transform: translateY(110vh) rotate(360deg); }
   }
-  /* hearts */
   .heart {
     position: absolute; bottom: -30px; font-size: 22px;
     animation: rise linear infinite; opacity: .9;
@@ -563,7 +556,6 @@
   @keyframes rise {
     to { transform: translateY(-110vh) translateX(40px) rotate(20deg); opacity: 0; }
   }
-  /* leaves */
   .leaf {
     position: absolute; top: -20px; font-size: 22px;
     animation: leafFall linear infinite;
@@ -571,7 +563,6 @@
   @keyframes leafFall {
     to { transform: translateY(110vh) translateX(80px) rotate(540deg); }
   }
-  /* bats */
   .bat {
     position: absolute; font-size: 24px;
     animation: flyAcross linear infinite;
@@ -580,7 +571,6 @@
     from { transform: translateX(-10vw) translateY(0); }
     to { transform: translateX(110vw) translateY(-30px); }
   }
-  /* stars */
   .twinkle {
     position: absolute; width: 3px; height: 3px;
     background: #fff; border-radius: 50%;
@@ -590,7 +580,6 @@
     0%,100% { opacity: .2; transform: scale(.8); }
     50% { opacity: 1; transform: scale(1.4); }
   }
-  /* crescent */
   .crescent {
     position: absolute; font-size: 26px; color: #ffd86b;
     animation: floatSlow 10s ease-in-out infinite;
@@ -599,12 +588,10 @@
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
   }
-  /* ocean waves */
   .wave-bg {
     position: absolute; bottom: 0; left: 0; width: 100%; height: 200px;
     background: radial-gradient(ellipse at center bottom, rgba(122,252,255,0.18), transparent 70%);
   }
-  /* fireworks burst */
   .firework {
     position: absolute; width: 6px; height: 6px; border-radius: 50%;
     animation: burst 1.6s ease-out infinite;
@@ -614,7 +601,6 @@
     100% { transform: scale(3); opacity: 0; }
   }
 
-  /* Per-theme accent overlay */
   body.theme-christmas { background: linear-gradient(180deg, #0a1422, #0a0a1a); }
   body.theme-halloween { background: linear-gradient(180deg, #1a0a12, #0a0a1a); }
   body.theme-hearts    { background: linear-gradient(180deg, #1a0a18, #0a0a1a); }
@@ -644,7 +630,6 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-
   </div>
 </header>
 
@@ -715,7 +700,7 @@
   </div>
 </section>
 
-<!-- AD SLOT 2 (mid page) -->
+<!-- AD SLOT 2 -->
 <section class="ad-slot" aria-label="Advertisement">
   <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9688888790437839"
        data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -744,7 +729,7 @@
   <p class="contact-meta">📧 contact@vidify.site · We respond within 24–48 hours.</p>
 </section>
 
-<!-- AD SLOT 3 (above footer) -->
+<!-- AD SLOT 3 -->
 <section class="ad-slot" aria-label="Advertisement">
   <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9688888790437839"
        data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -775,7 +760,6 @@
     <span>📅 Holidays by Calendarific</span>
   </div>
 </footer>
-
 
 <!-- MODALS -->
 <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true">
@@ -833,6 +817,7 @@ const OCCASIONS = {
   "05-12": { id:"nurses-day",     name:"International Nurses Day",      emoji:"💉", theme:"default" },
   "05-25": { id:"towel-africa",   name:"Towel Day & Africa Day",        emoji:"🌍", theme:"leaves" },
   "05-26": { id:"brothers-day",   name:"National Brother's Day",        emoji:"👨", theme:"default" },
+  "05-30": { id:"loomis-day",     name:"Loomis Day",                    emoji:"🤝", theme:"default" },
   "06-05": { id:"environment",    name:"World Environment Day",         emoji:"🌿", theme:"leaves" },
   "06-08": { id:"oceans",         name:"World Oceans Day",              emoji:"🌊", theme:"ocean" },
   "06-21": { id:"music-day",      name:"World Music Day",               emoji:"🎵", theme:"default" },
@@ -869,7 +854,8 @@ const ABOUT = {
   "ramadan": "Ramadan is the ninth month of the Islamic calendar and the holiest month for Muslims worldwide. During Ramadan, observers fast from dawn until sunset, abstaining from food, drink and worldly distractions to focus on prayer, reflection and devotion. Nights are filled with family iftars, Taraweeh prayers and recitation of the Quran. Ramadan emphasizes empathy with the less fortunate, generosity through charity, and spiritual renewal. It is a deeply communal and transformative experience celebrated across cultures.",
   "mawlid": "Mawlid un-Nabi marks the birth of Prophet Muhammad (peace be upon him), observed on the 12th of Rabi ul-Awwal in many Muslim communities. Celebrations include recitations of his life and teachings, communal prayers, sharing of food and remembrance gatherings. It is a day to reflect on the Prophet's example of compassion, humility, justice and mercy. Customs vary across regions, but the underlying theme is universal — gratitude for a life that continues to inspire over a billion people.",
   "teachers-day": "World Teachers Day, observed on October 5th, honors educators who shape minds, futures and societies. Established by UNESCO in 1994, the day recognizes the irreplaceable role teachers play — not only in delivering knowledge, but in nurturing curiosity, character and confidence. It's a chance to thank the teachers who believed in us, supported us through hard moments and helped us become who we are. Their work echoes long after the classroom doors close.",
-  "mothers-day": "Mother's Day is a celebration honoring mothers, motherhood, maternal bonds and the influence of mothers in society. Observed on different dates around the world, it's a day to express love, appreciation and gratitude for the women who give so much — often without recognition. From handwritten cards and breakfast in bed to long-distance calls, the gestures vary but the sentiment is universal. Mother's Day reminds us to pause and thank the heart of every family."
+  "mothers-day": "Mother's Day is a celebration honoring mothers, motherhood, maternal bonds and the influence of mothers in society. Observed on different dates around the world, it's a day to express love, appreciation and gratitude for the women who give so much — often without recognition. From handwritten cards and breakfast in bed to long-distance calls, the gestures vary but the sentiment is universal. Mother's Day reminds us to pause and thank the heart of every family.",
+  "loomis-day": "Loomis Day, observed on May 30th, is a day dedicated to celebrating the power of human connection, networking and community. Named to honor the spirit of bringing people together, it encourages reaching out to those who matter, strengthening existing bonds and building new ones. Whether in professional or personal life, Loomis Day is a reminder that meaningful relationships are one of the greatest assets we carry through life. A day to appreciate everyone who has opened doors, shared wisdom and walked alongside us on the journey."
 };
 
 /* ---------- WISH MESSAGES (5 male + 5 female per occasion id) ---------- */
@@ -1113,12 +1099,27 @@ const WISHES = {
       "I hope one day I love the way you do, Ma. Happy Mother's Day!",
       "Wishing you a Mother's Day as beautiful, gentle and full of love as you've always been."
     ]
+  },
+  "loomis-day": {
+    male: [
+      "Happy Loomis Day, brother! May your connections grow stronger and every bridge you've built lead somewhere beautiful today.",
+      "On Loomis Day, here's to the power of coming together, my friend. Wishing you meaningful bonds and doors that stay open.",
+      "Happy Loomis Day, bro! A reminder that the best things in life are built through trust, teamwork and genuine togetherness.",
+      "Wishing you a great Loomis Day. May every relationship you nurture today pay forward in ways you never expected.",
+      "Happy Loomis Day! May your networks grow wider, your bonds grow deeper and your circle stay filled with the right people."
+    ],
+    female: [
+      "Happy Loomis Day, dear! A day to celebrate the power of connection, community and the people who lift us higher.",
+      "On Loomis Day, wishing you the warmth of good company and the strength of relationships that truly matter.",
+      "Happy Loomis Day, beautiful! May today remind you how much the right connections can change absolutely everything.",
+      "Wishing you a lovely Loomis Day. May the people in your life feel your love and appreciation in everything you do.",
+      "Happy Loomis Day! Here's to building bridges, nurturing bonds and celebrating the wonderful people who walk beside you."
+    ]
   }
 };
 
 /* ---------- ISLAMIC EVENT MAPPING ---------- */
 function islamicEventFromHijri(hMonthNum, hDay) {
-  // Aladhan months: 1=Muharram ... 9=Ramadan, 10=Shawwal, 12=Dhul Hijjah, 3=Rabi al-Awwal
   if (hMonthNum === 1 && hDay === 1) return { name:"Islamic New Year", emoji:"🌙", id:"default", theme:"eid" };
   if (hMonthNum === 3 && hDay === 12) return { name:"Mawlid un Nabi", emoji:"💚", id:"mawlid", theme:"eid" };
   if (hMonthNum === 9 && hDay === 27) return { name:"Laylatul Qadr", emoji:"✨", id:"ramadan", theme:"eid" };
@@ -1292,15 +1293,14 @@ function applyTheme(theme) {
 /* ---------- STATE ---------- */
 const state = {
   country: { code: null, name: null, flag: "🌐" },
-  occasions: [],  // array {name, emoji, id, theme, kind}
-  primary: null,  // chosen main occasion
+  occasions: [],
+  primary: null,
   gender: localStorage.getItem("vidify_gender") || null,
   variantIdx: 0,
 };
 
 /* ---------- RENDER OCCASION ---------- */
 function pickPrimary(list) {
-  // priority islamic > national > worldwide
   const order = { islamic: 0, national: 1, worldwide: 2 };
   return [...list].sort((a,b)=> (order[a.kind]??9) - (order[b.kind]??9))[0] || null;
 }
@@ -1376,7 +1376,6 @@ function downloadWish() {
   c.width = W; c.height = H;
   const ctx = c.getContext("2d");
 
-  // gradient bg
   const g = ctx.createLinearGradient(0,0,W,H);
   g.addColorStop(0,"#1a0a2e");
   g.addColorStop(0.5,"#16213e");
@@ -1384,7 +1383,6 @@ function downloadWish() {
   ctx.fillStyle = g;
   ctx.fillRect(0,0,W,H);
 
-  // soft glow
   const rg = ctx.createRadialGradient(W/2,H/2,80,W/2,H/2,W/1.2);
   rg.addColorStop(0,"rgba(122,252,255,0.18)");
   rg.addColorStop(1,"rgba(0,0,0,0)");
@@ -1393,16 +1391,13 @@ function downloadWish() {
   ctx.fillStyle = "#fff";
   ctx.textAlign = "center";
 
-  // title
   ctx.font = "bold 70px Poppins, sans-serif";
   wrapText(ctx, title, W/2, 240, W-160, 84);
 
-  // body
   ctx.font = "44px Poppins, sans-serif";
   ctx.fillStyle = "#e6e8f5";
   wrapText(ctx, msg, W/2, 470, W-180, 64);
 
-  // footer brand
   ctx.font = "600 32px Poppins, sans-serif";
   ctx.fillStyle = "#7afcff";
   ctx.fillText("🌍 Vidify", W/2, H-90);
@@ -1431,7 +1426,6 @@ function wrapText(ctx, text, x, y, maxW, lh) {
 
 /* ---------- DATA FETCH ---------- */
 async function detectLocation() {
-  // 1) ipwho.is
   try {
     const r = await fetch("https://ipwho.is/");
     const j = await r.json();
@@ -1439,7 +1433,6 @@ async function detectLocation() {
       return { country_code: j.country_code, country_name: j.country };
     }
   } catch(e) {}
-  // 2) ip-api.com
   try {
     const r = await fetch("https://ip-api.com/json/");
     const j = await r.json();
@@ -1447,7 +1440,6 @@ async function detectLocation() {
       return { country_code: j.countryCode, country_name: j.country };
     }
   } catch(e) {}
-  // 3) ipapi.co
   try {
     const r = await fetch("https://ipapi.co/json/");
     const j = await r.json();
@@ -1489,11 +1481,9 @@ async function fetchCalendarific(cc) {
 function buildOccasionList(results) {
   const list = [];
 
-  // worldwide
   const w = OCCASIONS[todayKey()];
   if (w) list.push({ ...w, kind: "worldwide" });
 
-  // islamic
   try {
     const hijri = results.aladhan && results.aladhan.data && results.aladhan.data.hijri;
     if (hijri) {
@@ -1504,7 +1494,6 @@ function buildOccasionList(results) {
     }
   } catch(e) {}
 
-  // national
   try {
     const hol = results.cal && results.cal.response && results.cal.response.holidays;
     if (hol && hol.length) {
@@ -1520,7 +1509,6 @@ function buildOccasionList(results) {
     }
   } catch(e) {}
 
-  // ninja api holidays (fallback agar upar se koi occasion na aya)
   try {
     if (results.ninja && results.ninja.length) {
       results.ninja.slice(0,2).forEach(h => {
@@ -1554,14 +1542,12 @@ async function init() {
   initParticles();
   populateCountrySelect();
 
-  // Gender restore
   if (state.gender) {
     document.querySelectorAll(".gender-btn").forEach(b=>{
       if (b.dataset.gender === state.gender) b.classList.add("active");
     });
   }
 
-  // Restore saved manual country if present
   const saved = localStorage.getItem("vidify_country");
   let results;
   try {
@@ -1637,9 +1623,7 @@ async function applyManualCountry(code) {
   state.country.flag = flagFromCC(code);
   localStorage.setItem("vidify_country", JSON.stringify({ code, name }));
   setCountryUI();
-  // Re-fetch holidays for new country
   const cal = await fetchCalendarific(code);
-  // Keep existing islamic + worldwide; rebuild national list
   const d = new Date();
   const aladhan = await fetch(`https://api.aladhan.com/v1/gToH/${pad(d.getDate())}-${pad(d.getMonth()+1)}-${d.getFullYear()}`).then(r=>r.json()).catch(()=>null);
   state.occasions = buildOccasionList({ ip:{country_code:code, country_name:name}, aladhan, cal });
@@ -1753,7 +1737,7 @@ document.getElementById("modalBackdrop").addEventListener("click", (e)=>{
 });
 document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeModal(); });
 
-/* Midnight refresh check */
+/* Midnight refresh */
 let lastDay = new Date().getDate();
 setInterval(()=>{
   const d = new Date();
@@ -1761,7 +1745,7 @@ setInterval(()=>{
   lastDay = d.getDate();
 }, 60000);
 
-/* Footer last-updated date */
+/* Footer last-updated */
 try {
   const lu = document.getElementById("lastUpdated");
   if (lu) lu.textContent = new Date().toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" });

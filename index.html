@@ -805,36 +805,37 @@ async function fetchNinjaHolidays(cc) {
 
 /* ---------- OCCASIONS DB ---------- */
 const OCCASIONS = {
-  "01-01": { id:"new-year",       name:"New Year's Day",                emoji:"🎆", theme:"fireworks" },
-  "02-14": { id:"valentine",      name:"Valentine's Day",               emoji:"💝", theme:"hearts" },
-  "03-08": { id:"womens-day",     name:"International Women's Day",     emoji:"👩", theme:"hearts" },
-  "03-14": { id:"pi-day",         name:"Pi Day",                        emoji:"🥧", theme:"default" },
-  "04-01": { id:"april-fools",    name:"April Fools Day",               emoji:"😄", theme:"default" },
-  "04-22": { id:"earth-day",      name:"Earth Day",                     emoji:"🌍", theme:"leaves" },
-  "04-23": { id:"book-day",       name:"World Book Day",                emoji:"📚", theme:"default" },
-  "05-01": { id:"labour-day",     name:"International Labour Day",      emoji:"✊", theme:"default" },
-  "05-04": { id:"star-wars-day",  name:"Star Wars Day",                 emoji:"⭐", theme:"space" },
-  "05-12": { id:"nurses-day",     name:"International Nurses Day",      emoji:"💉", theme:"default" },
-  "05-25": { id:"towel-africa",   name:"Towel Day & Africa Day",        emoji:"🌍", theme:"leaves" },
-  "05-26": { id:"brothers-day",   name:"National Brother's Day",        emoji:"👨", theme:"default" },
-  "05-30": { id:"loomis-day",     name:"Loomis Day",                    emoji:"🤝", theme:"default" },
-  "06-05": { id:"environment",    name:"World Environment Day",         emoji:"🌿", theme:"leaves" },
-  "06-08": { id:"oceans",         name:"World Oceans Day",              emoji:"🌊", theme:"ocean" },
-  "06-21": { id:"music-day",      name:"World Music Day",               emoji:"🎵", theme:"default" },
-  "07-30": { id:"friendship-day", name:"International Friendship Day",  emoji:"🤝", theme:"default" },
-  "08-12": { id:"youth-day",      name:"International Youth Day",       emoji:"🧑", theme:"default" },
-  "09-21": { id:"peace-day",      name:"International Day of Peace",    emoji:"☮️", theme:"default" },
-  "10-02": { id:"animal-day",     name:"World Animal Day",              emoji:"🐾", theme:"default" },
-  "10-05": { id:"teachers-day",   name:"World Teachers Day",            emoji:"📚", theme:"default" },
-  "10-10": { id:"mental-health",  name:"World Mental Health Day",       emoji:"🧠", theme:"default" },
-  "10-31": { id:"halloween",      name:"Halloween",                     emoji:"🎃", theme:"halloween" },
-  "11-13": { id:"kindness",       name:"World Kindness Day",            emoji:"💛", theme:"default" },
-  "11-19": { id:"mens-day",       name:"International Men's Day",       emoji:"👨", theme:"default" },
-  "12-01": { id:"aids-day",       name:"World AIDS Day",                emoji:"🎗️", theme:"default" },
-  "12-10": { id:"human-rights",   name:"Human Rights Day",              emoji:"✊", theme:"default" },
-  "12-24": { id:"christmas-eve",  name:"Christmas Eve",                 emoji:"🎄", theme:"christmas" },
-  "12-25": { id:"christmas",      name:"Christmas Day",                 emoji:"🎅", theme:"christmas" },
-  "12-31": { id:"new-year-eve",   name:"New Year's Eve",                emoji:"🎊", theme:"fireworks" }
+  "01-01": { id:"new-year",         name:"New Year's Day",                  emoji:"🎆", theme:"fireworks" },
+  "02-14": { id:"valentine",        name:"Valentine's Day",                  emoji:"💝", theme:"hearts" },
+  "03-08": { id:"womens-day",       name:"International Women's Day",        emoji:"👩", theme:"hearts" },
+  "03-14": { id:"pi-day",           name:"Pi Day",                           emoji:"🥧", theme:"default" },
+  "04-01": { id:"april-fools",      name:"April Fools Day",                  emoji:"😄", theme:"default" },
+  "04-22": { id:"earth-day",        name:"Earth Day",                        emoji:"🌍", theme:"leaves" },
+  "04-23": { id:"book-day",         name:"World Book Day",                   emoji:"📚", theme:"default" },
+  "05-01": { id:"labour-day",       name:"International Labour Day",         emoji:"✊", theme:"default" },
+  "05-04": { id:"star-wars-day",    name:"Star Wars Day",                    emoji:"⭐", theme:"space" },
+  "05-12": { id:"nurses-day",       name:"International Nurses Day",         emoji:"💉", theme:"default" },
+  "05-25": { id:"towel-africa",     name:"Towel Day & Africa Day",           emoji:"🌍", theme:"leaves" },
+  "05-26": { id:"brothers-day",     name:"National Brother's Day",           emoji:"👨", theme:"default" },
+  "05-30": { id:"loomis-day",       name:"Loomis Day",                       emoji:"🤝", theme:"default" },
+  "05-31": { id:"no-tobacco-day",   name:"World No Tobacco Day",             emoji:"🚭", theme:"leaves" },
+  "06-05": { id:"environment",      name:"World Environment Day",            emoji:"🌿", theme:"leaves" },
+  "06-08": { id:"oceans",           name:"World Oceans Day",                 emoji:"🌊", theme:"ocean" },
+  "06-21": { id:"music-day",        name:"World Music Day",                  emoji:"🎵", theme:"default" },
+  "07-30": { id:"friendship-day",   name:"International Friendship Day",     emoji:"🤝", theme:"default" },
+  "08-12": { id:"youth-day",        name:"International Youth Day",          emoji:"🧑", theme:"default" },
+  "09-21": { id:"peace-day",        name:"International Day of Peace",       emoji:"☮️", theme:"default" },
+  "10-02": { id:"animal-day",       name:"World Animal Day",                 emoji:"🐾", theme:"default" },
+  "10-05": { id:"teachers-day",     name:"World Teachers Day",               emoji:"📚", theme:"default" },
+  "10-10": { id:"mental-health",    name:"World Mental Health Day",          emoji:"🧠", theme:"default" },
+  "10-31": { id:"halloween",        name:"Halloween",                        emoji:"🎃", theme:"halloween" },
+  "11-13": { id:"kindness",         name:"World Kindness Day",               emoji:"💛", theme:"default" },
+  "11-19": { id:"mens-day",         name:"International Men's Day",          emoji:"👨", theme:"default" },
+  "12-01": { id:"aids-day",         name:"World AIDS Day",                   emoji:"🎗️", theme:"default" },
+  "12-10": { id:"human-rights",     name:"Human Rights Day",                 emoji:"✊", theme:"default" },
+  "12-24": { id:"christmas-eve",    name:"Christmas Eve",                    emoji:"🎄", theme:"christmas" },
+  "12-25": { id:"christmas",        name:"Christmas Day",                    emoji:"🎅", theme:"christmas" },
+  "12-31": { id:"new-year-eve",     name:"New Year's Eve",                   emoji:"🎊", theme:"fireworks" }
 };
 
 /* ---------- ABOUT TEXT PER OCCASION ---------- */
@@ -855,7 +856,8 @@ const ABOUT = {
   "mawlid": "Mawlid un-Nabi marks the birth of Prophet Muhammad (peace be upon him), observed on the 12th of Rabi ul-Awwal in many Muslim communities. Celebrations include recitations of his life and teachings, communal prayers, sharing of food and remembrance gatherings. It is a day to reflect on the Prophet's example of compassion, humility, justice and mercy. Customs vary across regions, but the underlying theme is universal — gratitude for a life that continues to inspire over a billion people.",
   "teachers-day": "World Teachers Day, observed on October 5th, honors educators who shape minds, futures and societies. Established by UNESCO in 1994, the day recognizes the irreplaceable role teachers play — not only in delivering knowledge, but in nurturing curiosity, character and confidence. It's a chance to thank the teachers who believed in us, supported us through hard moments and helped us become who we are. Their work echoes long after the classroom doors close.",
   "mothers-day": "Mother's Day is a celebration honoring mothers, motherhood, maternal bonds and the influence of mothers in society. Observed on different dates around the world, it's a day to express love, appreciation and gratitude for the women who give so much — often without recognition. From handwritten cards and breakfast in bed to long-distance calls, the gestures vary but the sentiment is universal. Mother's Day reminds us to pause and thank the heart of every family.",
-  "loomis-day": "Loomis Day, observed on May 30th, is a day dedicated to celebrating the power of human connection, networking and community. Named to honor the spirit of bringing people together, it encourages reaching out to those who matter, strengthening existing bonds and building new ones. Whether in professional or personal life, Loomis Day is a reminder that meaningful relationships are one of the greatest assets we carry through life. A day to appreciate everyone who has opened doors, shared wisdom and walked alongside us on the journey."
+  "loomis-day": "Loomis Day, observed on May 30th, is a day dedicated to celebrating the power of human connection, networking and community. Named to honor the spirit of bringing people together, it encourages reaching out to those who matter, strengthening existing bonds and building new ones. Whether in professional or personal life, Loomis Day is a reminder that meaningful relationships are one of the greatest assets we carry through life. A day to appreciate everyone who has opened doors, shared wisdom and walked alongside us on the journey.",
+  "no-tobacco-day": "World No Tobacco Day, observed every May 31st, is a global awareness day established by the World Health Organization in 1987. It highlights the serious health risks associated with tobacco use and advocates for effective policies to reduce consumption. Tobacco remains one of the leading causes of preventable death worldwide, claiming over 8 million lives every year. The day encourages individuals to commit to quitting, governments to strengthen tobacco control laws and communities to support those trying to break free from addiction. Every smoke-free day is a step toward a longer, healthier life."
 };
 
 /* ---------- WISH MESSAGES (5 male + 5 female per occasion id) ---------- */
@@ -1114,6 +1116,22 @@ const WISHES = {
       "Happy Loomis Day, beautiful! May today remind you how much the right connections can change absolutely everything.",
       "Wishing you a lovely Loomis Day. May the people in your life feel your love and appreciation in everything you do.",
       "Happy Loomis Day! Here's to building bridges, nurturing bonds and celebrating the wonderful people who walk beside you."
+    ]
+  },
+  "no-tobacco-day": {
+    male: [
+      "Happy World No Tobacco Day, brother! Your health is your greatest wealth — every smoke-free day is a victory worth celebrating.",
+      "Hey bro — today the world says no to tobacco. If you've been thinking about quitting, let today be the first step. You've got this.",
+      "On World No Tobacco Day, wishing you the strength to protect your health and the people who love you. One breath at a time.",
+      "No tobacco, no regrets. Wishing you a healthy, strong and smoke-free life, my friend. Happy World No Tobacco Day!",
+      "Today is a reminder that your lungs, your heart and your future matter. Happy World No Tobacco Day, brother — breathe easy."
+    ],
+    female: [
+      "Happy World No Tobacco Day, dear! Your health is precious — every smoke-free day is a gift you give yourself.",
+      "Hey beautiful — today the world says no to tobacco. If quitting has been on your mind, let today be the day you start. You can do it.",
+      "On World No Tobacco Day, wishing you strength, health and a future full of clean, easy breaths.",
+      "No tobacco, no regrets. Wishing you a long, healthy and vibrant life, queen. Happy World No Tobacco Day!",
+      "Today is a reminder that you deserve to feel your absolute best. Happy World No Tobacco Day — breathe deep, live fully."
     ]
   }
 };
@@ -1714,7 +1732,7 @@ const MODAL_CONTENT = {
       <li><strong>Intellectual property:</strong> The Vidify name, design and curated content are property of Vidify. You may not redistribute the service or copy its design.</li>
       <li><strong>Limitation of liability:</strong> Vidify is not liable for any damages arising from use of the service, including reliance on dates or holiday information.</li>
       <li><strong>Third-party services:</strong> Vidify relies on external APIs. Their availability and accuracy are outside our control.</li>
-      <li><strong>Changes:</strong> We may update these terms at any time. Continued use of Vidify constitutes acceptance of the updated terms.</li>
+      <li><strong>Changes:</strong> We may update these terms at any time. Continued use of Vidify contributes acceptance of the updated terms.</li>
     </ul>
     <p><em>Last updated: May 2026.</em></p>`
 };
